@@ -16,7 +16,7 @@ let counter = 0;
 io.on('connection', socket => {
     console.log(`${counter++} someone connected`);
 
-    socket.emit('welcomeMessage', 'Welcome to the chatroom!');
+    socket.emit('welcomeMessage', ' 😻 Welcome to KittyChat! 😻');
 
     socket.on('sendToAll', (message) => {
         io.emit("displayMessage", (message));

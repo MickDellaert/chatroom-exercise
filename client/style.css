@@ -1,0 +1,28 @@
+.container{
+    margin: auto;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.target{
+    border: dimgrey 1px solid;
+    height: 300px;
+    text-align: center;
+}
+
+#input{
+    flex: 1;
+    margin-right: 5px;
+}
+
+.input-container{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+h1{
+    text-align: center;
+}
