@@ -18,11 +18,15 @@ io.on('connection', socket => {
 
     socket.emit('welcomeMessage', 'Welcome to the chatroom!');
 
-    socket.on('sendToAll', (message) =>{
+    socket.on('sendToAll', (message) => {
         io.emit("displayMessage", (message));
     });
-})
+
+    socket.on('sendToMe', (message) => {
+        socket.emit("displayMessage", (message));
+    });
+});
 
 server.listen(port, () => {
     console.log(`server running on ${port}`)
-})
+});

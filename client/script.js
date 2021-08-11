@@ -19,6 +19,11 @@ sendAll.addEventListener('click', (e) => {
     socket.emit('sendToAll', (message));
 });
 
+sendMe.addEventListener('click', (e) => {
+    e.preventDefault();
+    const message = input.value;
+    socket.emit('sendToMe', (message));
+});
 
 socket.on('displayMessage', (message) => {
     target.innerHTML += `<br> ${message}`;
