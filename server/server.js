@@ -16,7 +16,11 @@ let counter = 0;
 io.on('connection', socket => {
     console.log(`${counter++} someone connected`);
 
-    socket.emit('message', 'Welcome to the chatroom!')
+    socket.emit('welcomeMessage', 'Welcome to the chatroom!');
+
+    socket.on('sendToAll', (message) =>{
+        io.emit("displayMessage", (message));
+    });
 })
 
 server.listen(port, () => {
