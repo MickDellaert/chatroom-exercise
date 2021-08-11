@@ -16,17 +16,23 @@ socket.on('welcomeMessage', (message) => {
 sendAll.addEventListener('click', (e) => {
     e.preventDefault();
     const message = input.value;
-    socket.emit('sendToAll', (message));
+    if (input.value) {
+        socket.emit('sendToAll', (message));
+    }
 });
 
 sendMe.addEventListener('click', (e) => {
     e.preventDefault();
     const message = input.value;
-    socket.emit('sendToMe', (message));
+    if (input.value) {
+        socket.emit('sendToMe', (message));
+    }
 });
 
 socket.on('displayMessage', (message) => {
-    target.innerHTML += `<br> ${message}`;
+    const item = document.createElement('li');
+    item.textContent = message;
+    target.appendChild(item);
     console.log(message);
 });
 
