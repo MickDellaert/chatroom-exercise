@@ -1,20 +1,22 @@
 const express = require('express');
 const http = require('http');
 const app = express();
+const socketio = require('socket.io');
+
+const server = http.createServer(app);
+const port = 8080;
+const io = socketio(server);
 
 const clientPath = `${__dirname}/../client`;
 app.use(express.static(clientPath));
 
 
-const server = http.createServer(app);
-const port = 8080;
-
-const io = require('socket.io')(server);
-
 let counter = 0;
 
-io.on('connection', (socket) => {
+io.on('connection', socket => {
     console.log(`${counter++} someone connected`);
+
+    socket.emit('message', 'Welcome to the chatroom!')
 })
 
 server.listen(port, () => {
