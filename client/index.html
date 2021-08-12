@@ -9,17 +9,26 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<div class="main-container">
+<div class="index-container">
     <div class="content-container">
-        <h1>😻 KittyChat</h1>
-        <div class="target"></div>
-        <div class="input-container">
-            <input id="input" type="text" autocomplete="off">
-            <div class="buttons">
-                <button id="sendAllBtn">send to all</button>
-                <button id="sendMeBtn">send to me</button>
+        <h1>😸 KittyChat</h1>
+        <form action="chat.html">
+            <div class="input-container-index">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username">
+                <label for="chatrooms">Chatrooms:</label>
+
+                <select id="chatrooms">
+                    <option value="catnip">catnip</option>
+                    <option value="boxes">boxes</option>
+                    <option value="naps">naps</option>
+                    <option value="food">food</option>
+                </select>
+                <button class="enter-btn" type="submit">Enter Chat</button>
+
             </div>
-        </div>
+        </form>
+
     </div>
 </div>
 

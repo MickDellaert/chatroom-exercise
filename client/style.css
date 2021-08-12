@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Sonsie+One&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: sans-serif;
 }
 
-.main-container{
+.main-container {
     padding: 20px;
     margin: 40px auto;
     background-color: #f03a17;
@@ -21,14 +21,14 @@ body{
     border-radius: 10px;
 }
 
-.content-container{
+.content-container {
     width: 100%;
     margin: 20px;
     display: flex;
     flex-direction: column;
 }
 
-.target{
+.target {
     display: flex;
     flex-direction: column;
     border: dimgrey 1px solid;
@@ -40,24 +40,53 @@ body{
     padding: 10px;
 }
 
-.input-container{
+.input-container {
     width: 100%;
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
 }
 
-#input{
+.index-container{
+    padding: 20px;
+    margin: 40px auto;
+    background-color: #f03a17;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 350px;
+    border-radius: 10px;
+}
+
+.input-container-index {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+button{
+    background-color: #ffc83d;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.enter-btn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#input {
     flex: 1;
     margin-right: 5px;
 }
 
-h1{
+h1 {
     text-align: center;
     font-family: 'Sonsie One', cursive;
     color: #ffc83d;
-    -webkit-text-stroke: 5px black;
-    paint-order: stroke fill;
+    /*-webkit-text-stroke: 5px black;*/
+    /*paint-order: stroke fill;*/
     margin-top: 0px;
     margin-bottom: 40px;
 }
@@ -71,4 +100,9 @@ li {
     padding: 5px;
     margin: 5px 0;
     text-align: left;
+}
+
+label{
+    font-size: 14px;
+    color: #ffc83d;
 }
