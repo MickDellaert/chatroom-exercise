@@ -11,14 +11,15 @@
 <body>
 <div class="index-container">
     <div class="content-container">
-        <h1>😸 KittyChat</h1>
+        <header class="join-container">
+            <h1>😸 KittyChat</h1>
+        </header>
         <form action="chat.html">
             <div class="input-container-index">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username">
-                <label for="chatrooms">Chatrooms:</label>
-
-                <select id="chatrooms">
+                <input type="text" id="username" name="username" placeholder="Enter username" required>
+                <label for="chatroom">Chatroom:</label>
+                <select id="chatroom" name="chatroom">
                     <option value="catnip">catnip</option>
                     <option value="boxes">boxes</option>
                     <option value="naps">naps</option>
@@ -31,8 +32,8 @@
 
     </div>
 </div>
-
-<script src="/socket.io/socket.io.js"></script>
-<script src="script.js"></script>
+<!--// Got stuck for ages trying to figure out why connect and disconnect was logging both at the same time, it was because of the scripts included here-->
+<!--<script src="/socket.io/socket.io.js"></script>-->
+<!--<script src="script.js"></script>-->
 </body>
 </html>

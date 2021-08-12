@@ -21,6 +21,12 @@ body {
     border-radius: 10px;
 }
 
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    align-items: center;
+}
 .content-container {
     width: 100%;
     margin: 20px;
@@ -64,7 +70,7 @@ body {
     justify-content: center;
 }
 
-button{
+button {
     background-color: #ffc83d;
     border: none;
     padding: 10px;
@@ -74,6 +80,18 @@ button{
 .enter-btn {
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.leave-btn {
+    background-color: #ffc83d;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+}
+
+a {
+    text-decoration: none;
 }
 
 #input {
@@ -88,7 +106,6 @@ h1 {
     /*-webkit-text-stroke: 5px black;*/
     /*paint-order: stroke fill;*/
     margin-top: 0px;
-    margin-bottom: 40px;
 }
 
 li {

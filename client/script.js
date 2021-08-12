@@ -1,4 +1,4 @@
-let socket = io.connect();
+let socket = io();
 
 const target = document.querySelector('.target');
 const form = document.querySelector('#form');
@@ -7,9 +7,9 @@ const sendMe = document.querySelector('#sendMeBtn');
 const input = document.querySelector('#input');
 
 
-socket.on('welcomeMessage', (message) => {
+socket.on('message', message => {
     if (target !== null) {
-        target.innerHTML += `<br> ${message}`;
+        // target.innerHTML += `<br> ${message}`;
         console.log(message)
     }
 })
