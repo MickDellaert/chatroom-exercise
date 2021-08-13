@@ -10,6 +10,38 @@ body {
     font-family: sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
+
+h1 {
+    font-family: 'Sonsie One', cursive;
+    font-size: 30px;
+    color: #ffc83d;
+    margin-top: 0px;
+}
+
+li {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: #f1dcc7;
+    list-style-type: none;
+    padding: 6px;
+    margin: 4px 0;
+    text-align: left;
+    height: auto;
+}
+
+label {
+    font-size: 14px;
+    color: #ffc83d;
+}
+
+
+/* Chat page */
 .main-container {
     padding: 20px;
     margin: 40px auto;
@@ -27,11 +59,23 @@ body {
     margin-bottom: 40px;
     align-items: center;
 }
+
+.chat-header h1 {
+    font-size: 30px;
+    margin-left: 5px;
+}
+
+.logo-inline {
+    display: flex;
+    align-items: center;
+}
+
 .content-container {
     width: 100%;
     margin: 20px;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .target {
@@ -42,44 +86,8 @@ body {
     text-align: center;
     background-color: linen;
     border-radius: 8px;
-    overflow-x: auto;
     padding: 10px;
-}
-
-.input-container {
-    width: 100%;
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.index-container{
-    padding: 20px;
-    margin: 40px auto;
-    background-color: #f03a17;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 350px;
-    border-radius: 10px;
-}
-
-.input-container-index {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-button {
-    background-color: #ffc83d;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.enter-btn {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    overflow-y: auto;
 }
 
 .leave-btn {
@@ -90,36 +98,140 @@ button {
     color: black;
 }
 
-a {
-    text-decoration: none;
+button {
+    background-color: #ffc83d;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-#input {
-    flex: 1;
-    margin-right: 5px;
+
+/* Join page */
+.join-main-container {
+    padding: 20px;
+    margin: 40px auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 350px;
+    border-radius: 10px;
+    background-color: #f03a17;
 }
 
-h1 {
+.join-header {
+    display: flex;
+    justify-content: center;
     text-align: center;
-    font-family: 'Sonsie One', cursive;
-    color: #ffc83d;
-    /*-webkit-text-stroke: 5px black;*/
-    /*paint-order: stroke fill;*/
-    margin-top: 0px;
+    margin-bottom: 40px;
+    align-items: center;
 }
 
-li {
-    width: 100%;
+.join-container-form {
     display: flex;
     flex-direction: column;
-    background-color: #f1dcc7;
-    list-style-type: none;
-    padding: 5px;
-    margin: 5px 0;
-    text-align: left;
+    justify-content: center;
 }
 
-label{
-    font-size: 14px;
-    color: #ffc83d;
+.enter-btn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+/* Emoji popup */
+.emoji-popup {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+}
+
+.toggle-popup {
+    display: none;
+}
+
+.emoji {
+    text-align: center;
+    font-size: 24px;
+    padding: 8px;
+}
+
+.emoji:hover {
+    cursor: pointer;
+}
+
+
+/* Main input */
+textarea {
+    height: 36px;
+    display: flex;
+    flex: 1;
+    margin-right: 5px;
+    border: none;
+    resize: none;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+.buttons-container {
+    align-items: center;
+}
+
+.chat-input-container {
+    display: flex;
+    margin-right: 5px;
+    flex: 2;
+    background-color: white;
+    align-items: center;
+    padding: 0 5px;
+    border-radius: 5px;
+}
+
+.emo-btn {
+    background-color: #f1dcc7;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-width: 0px;
+    align-items: center;
+    padding: 0;
+}
+
+.input-container {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    border-width: 0px;
+}
+
+
+/* Emoji animation */
+.emoji-anim {
+    font-size: 45px;
+}
+
+.emoji-anim::after {
+    animation-timing-function: linear;
+    /*animation-iteration-count: infinite;*/
+}
+
+.cat-anim::after {
+    content: '🐱';
+    --emoji-1: '😺';
+    --emoji-2: '😸';
+    animation-name: threeFrames;
+    animation-duration: 1.4s;
+}
+
+@keyframes threeFrames {
+    33.333% {
+        content: var(--emoji-1);
+    }
+
+    66.666% {
+        content: var(--emoji-2);
+    }
 }

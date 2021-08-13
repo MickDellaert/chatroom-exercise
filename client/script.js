@@ -9,7 +9,9 @@ const input = document.querySelector('#input');
 
 socket.on('message', message => {
     if (target !== null) {
-        // target.innerHTML += `<br> ${message}`;
+        const item = document.createElement('li');
+        item.textContent = message;
+        target.appendChild(item);
         console.log(message)
     }
 })
@@ -38,4 +40,12 @@ socket.on('displayMessage', (message) => {
     target.appendChild(item);
 });
 
+function addEmoji(emoji) {
+    input.value += emoji;
+}
+
+function toggleEmojiPopup() {
+    let popup = document.getElementById('emoji-popup-id');
+    popup.classList.toggle('toggle-popup');
+}
 
