@@ -22,19 +22,6 @@ h1 {
     margin-top: 0px;
 }
 
-.message-item {
-    background-color: #f1dcc7;
-    padding: 6px;
-    margin: 4px 0;
-    text-align: left;
-    overflow-wrap: anywhere;
-}
-
-.message-username {
-    font-size: 14px;
-    color: #d48c00;
-}
-
 label {
     font-size: 14px;
     color: #ffc83d;
@@ -95,7 +82,7 @@ input:focus {
     overflow: hidden;
 }
 
-.target {
+.target-container {
     display: flex;
     flex-direction: column;
     border: dimgrey 1px solid;
@@ -103,9 +90,22 @@ input:focus {
     text-align: center;
     background-color: linen;
     border-radius: 8px;
-    padding: 10px;
     overflow-y: auto;
     scrollbar-width: thin;
+}
+
+.message-item {
+    background-color: #f1dcc7;
+    padding: 6px;
+    margin: 4px 0;
+    text-align: left;
+    overflow-wrap: anywhere;
+    margin: 10px;
+}
+
+.message-username {
+    font-size: 14px;
+    color: #d48c00;
 }
 
 .leave-btn {
@@ -115,7 +115,6 @@ input:focus {
     border-radius: 5px;
     color: black;
 }
-
 
 /* Join page */
 .join-main-container {
@@ -181,9 +180,11 @@ input:focus {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 3px;
-    background-color: rgba(255,255,255,0.6);
-    border-radius: 5px 5px 0 0 ;
+    align-items: center;
+    background-color: rgba(255,255,255,0.85);
+    border-radius: 0 0 5px 5px;
+    position: sticky;
+    top: 0;
 }
 
 .toggle-popup {

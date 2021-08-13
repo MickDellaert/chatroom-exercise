@@ -1,6 +1,7 @@
 let socket = io();
 
 const target = document.querySelector('.target');
+const targetContainer = document.querySelector('.target-container')
 const form = document.querySelector('#form');
 const sendAll = document.querySelector('#sendAllBtn');
 const sendMe = document.querySelector('#sendMeBtn');
@@ -17,7 +18,10 @@ socket.on('message', message => {
         item.innerHTML = `<p class="message-username">${socket.id}</p><p>${message}</p>`;
         target.appendChild(item);
         console.log(message)
-    }
+    };
+
+    targetContainer.scrollTop = targetContainer.scrollHeight;
+
 })
 
 
