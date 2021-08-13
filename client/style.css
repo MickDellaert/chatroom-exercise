@@ -38,6 +38,15 @@ li {
 label {
     font-size: 14px;
     color: #ffc83d;
+    margin-bottom: 5px;
+}
+
+button {
+    background-color: #ffc83d;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 
@@ -98,14 +107,6 @@ label {
     color: black;
 }
 
-button {
-    background-color: #ffc83d;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
 
 /* Join page */
 .join-main-container {
@@ -133,8 +134,27 @@ button {
     justify-content: center;
 }
 
+
+#username{
+    height: 30px;
+    background-color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+#chatroom{
+    height: 30px;
+    background-color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
 .enter-btn {
-    margin-top: 20px;
+    margin-top: 18px;
     margin-bottom: 20px;
 }
 
@@ -223,7 +243,7 @@ textarea:focus {
     --emoji-1: '😺';
     --emoji-2: '😸';
     animation-name: threeFrames;
-    animation-duration: 1.4s;
+    animation-duration: 1.2s;
 }
 
 @keyframes threeFrames {
