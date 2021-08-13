@@ -12,8 +12,9 @@ const login = document.querySelector('#login');
 
 socket.on('message', message => {
     if (target !== null) {
-        const item = document.createElement('li');
-        item.textContent = message;
+        const item = document.createElement('div');
+        item.classList.add('message-item');
+        item.innerHTML = `<p class="message-username">${socket.id}</p><p>${message}</p>`;
         target.appendChild(item);
         console.log(message)
     }
@@ -37,11 +38,11 @@ sendMe.addEventListener('click', (e) => {
     }
 });
 
-socket.on('displayMessage', (message) => {
-    const item = document.createElement('li');
-    item.textContent = message;
-    target.appendChild(item);
-});
+// socket.on('displayMessage', (message) => {
+//     const item = document.createElement('li');
+//     item.textContent = message;
+//     target.appendChild(item);
+// });
 
 function addEmoji(emoji) {
     input.value += emoji;
@@ -54,7 +55,10 @@ function toggleEmojiPopup() {
 
 // login.addEventListener('click', (e) => {
 //     e.preventDefault();
-//     let userName = userNameInput.value;
+//     if (userNameInput.value) {
+//
+//         let userName = userNameInput.value;
 //         socket.emit('getUserName', (userName));
 //         console.log(userName);
+//     }
 // });

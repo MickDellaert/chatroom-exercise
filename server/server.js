@@ -10,6 +10,10 @@ const io = socketio(server);
 const clientPath = `${__dirname}/../client/`;
 app.use(express.static(clientPath));
 
+app.get('/', (req, res) => {
+    res.render('index')
+})
+
 let counter = 0;
 
 io.on('connection', (socket) => {
@@ -29,14 +33,14 @@ io.on('connection', (socket) => {
 
     // Send message to everybody
     socket.on('sendToAll', (message) => {
-        io.emit("displayMessage", (message));
+        io.emit("message", (message));
     });
 
     // Send message only to me
     socket.on('sendToMe', (message) => {
-        socket.emit("displayMessage", (message));
+        socket.emit("message", (message));
     });
-
+    //
     // socket.on('getUserName', (userName) => {
     //     console.log(userName)
     // });
