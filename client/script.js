@@ -9,20 +9,25 @@ const input = document.querySelector('#input');
 const userNameInput = document.querySelector('#username');
 const login = document.querySelector('#login');
 
+const { username, chatroom } = Qs.parse(location.search, {
+    ignoreQueryPrefix: true
+});
 
+console.log(username, chatroom);
+
+socket.emit('joinRoom', {username, chatroom});
 
 socket.on('message', message => {
     if (target !== null) {
         const item = document.createElement('div');
         item.classList.add('message-item');
-        item.innerHTML = `<p class="message-username">${socket.id}</p><p>${message}</p>`;
+        item.innerHTML = `<p class="message-username">${username} - Active in ${chatroom}</p><p>${message}</p>`;
         target.appendChild(item);
         console.log(message)
     };
 
     targetContainer.scrollTop = targetContainer.scrollHeight;
-
-})
+});
 
 
 sendAll.addEventListener('click', (e) => {
