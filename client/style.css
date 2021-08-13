@@ -49,6 +49,14 @@ button {
     cursor: pointer;
 }
 
+button:hover{
+    background-color: #fdcc4e;
+}
+
+input:focus {
+    outline: none;
+}
+
 
 /* Chat page */
 .main-container {
@@ -97,6 +105,7 @@ button {
     border-radius: 8px;
     padding: 10px;
     overflow-y: auto;
+    scrollbar-width: thin;
 }
 
 .leave-btn {
@@ -137,20 +146,28 @@ button {
 
 #username{
     height: 30px;
-    background-color: white;
+    background-color: linen;
     border-radius: 5px;
     border: none;
     padding: 5px;
     margin-bottom: 15px;
 }
 
+#username:hover{
+    background-color: white;
+}
+
 #chatroom{
     height: 30px;
-    background-color: white;
+    background-color: linen;
     border-radius: 5px;
     border: none;
     padding: 5px;
     margin-bottom: 15px;
+}
+
+#chatroom:hover{
+    background-color: white;
 }
 
 .enter-btn {
@@ -190,6 +207,7 @@ textarea {
     margin-right: 5px;
     border: none;
     resize: none;
+    padding: 4px 0;
 }
 
 textarea:focus {
@@ -240,8 +258,8 @@ textarea:focus {
 
 .cat-anim::after {
     content: '🐱';
-    --emoji-1: '😺';
-    --emoji-2: '😸';
+    --emoji-1: '😸';
+    --emoji-2: '😺';
     animation-name: threeFrames;
     animation-duration: 1.2s;
 }

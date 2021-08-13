@@ -5,6 +5,9 @@ const form = document.querySelector('#form');
 const sendAll = document.querySelector('#sendAllBtn');
 const sendMe = document.querySelector('#sendMeBtn');
 const input = document.querySelector('#input');
+const userNameInput = document.querySelector('#username');
+const login = document.querySelector('#login');
+
 
 
 socket.on('message', message => {
@@ -49,3 +52,9 @@ function toggleEmojiPopup() {
     popup.classList.toggle('toggle-popup');
 }
 
+// login.addEventListener('click', (e) => {
+//     e.preventDefault();
+//     let userName = userNameInput.value;
+//         socket.emit('getUserName', (userName));
+//         console.log(userName);
+// });
