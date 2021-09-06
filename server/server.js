@@ -6,13 +6,10 @@ const socketio = require('socket.io');
 const server = http.createServer(app);
 const port = 8080;
 const io = socketio(server);
+const {userJoin, getCurrentUser} = require('./utils/users')
 
 const clientPath = `${__dirname}/../client/`;
 app.use(express.static(clientPath));
-
-app.get('/', (req, res) => {
-    res.render('index')
-})
 
 let counter = 0;
 
@@ -21,6 +18,9 @@ io.on('connection', (socket) => {
     console.log(socket.id)
 
     socket.on('joinRoom', ({username, chatroom}) => {
+        const user = userJoin(username, chatroom);
+
+        socket.join(username)
         // Emit sends message to everybody when client connects
         socket.emit('message', `😻 Hi ${username}, welcome to KittyChat! 😻`);
 
@@ -30,7 +30,7 @@ io.on('connection', (socket) => {
 
     // Runs when client disconnects
     socket.on('disconnect', () => {
-        io.emit('message', `A user has joined the chat`);
+        io.emit('message', `A user has left the chat`);
     });
 
     // Send message to everybody

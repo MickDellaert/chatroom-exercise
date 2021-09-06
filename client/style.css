@@ -277,3 +277,29 @@ textarea:focus {
         content: var(--emoji-2);
     }
 }
+
+@media (max-width: 700px) {
+
+    .chat-input-container{
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+
+    .input-container{
+        display: block;
+    }
+
+    .buttons-container{
+        display: flex;
+        margin-left: -4px;
+        margin-right: -4px;
+
+    }
+    .send-button{
+        flex: 1;
+        margin: 4px;
+    }
+    body{
+        margin: 12px;
+    }
+}
