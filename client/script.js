@@ -18,17 +18,9 @@ console.log(username, chatroom);
 socket.emit('joinRoom', {username, chatroom});
 
 socket.on('message', message => {
-    if (target !== null) {
-        const item = document.createElement('div');
-        item.classList.add('message-item');
-        item.innerHTML = `<p class="message-username">${username} - Active in ${chatroom}</p><p>${message}</p>`;
-        target.appendChild(item);
-        console.log(message)
-    };
-
-    targetContainer.scrollTop = targetContainer.scrollHeight;
+    console.log(message);
+    displayMessage(message);
 });
-
 
 sendAll.addEventListener('click', (e) => {
     e.preventDefault();
@@ -36,6 +28,8 @@ sendAll.addEventListener('click', (e) => {
     if (input.value) {
         console.log(message)
         socket.emit('sendToAll', (message));
+        input.value = "";
+        input.focus();
     }
 });
 
@@ -44,14 +38,23 @@ sendMe.addEventListener('click', (e) => {
     let message = input.value;
     if (input.value) {
         socket.emit('sendToMe', (message));
+        input.value = "";
+        input.focus();
     }
 });
 
-// socket.on('displayMessage', (message) => {
-//     const item = document.createElement('li');
-//     item.textContent = message;
-//     target.appendChild(item);
-// });
+function displayMessage(message){
+    if (target !== null) {
+        const item = document.createElement('div');
+        item.classList.add('message-item');
+        item.innerHTML = `<p class="message-username">${message.name} - Active in ${chatroom} - ${message.time}</p><p>${message.text}</p>`;
+        target.appendChild(item);
+        console.log(message)
+    };
+
+    targetContainer.scrollTop = targetContainer.scrollHeight;
+
+}
 
 function addEmoji(emoji) {
     input.value += emoji;
@@ -62,12 +65,3 @@ function toggleEmojiPopup() {
     popup.classList.toggle('toggle-popup');
 }
 
-// login.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     if (userNameInput.value) {
-//
-//         let userName = userNameInput.value;
-//         socket.emit('getUserName', (userName));
-//         console.log(userName);
-//     }
-// });
