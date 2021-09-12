@@ -8,6 +8,7 @@ const sendMe = document.querySelector('#sendMeBtn');
 const input = document.querySelector('#input');
 const userNameInput = document.querySelector('#username');
 const login = document.querySelector('#login');
+const roomName = document.querySelector('#chatroom')
 
 const { username, chatroom } = Qs.parse(location.search, {
     ignoreQueryPrefix: true
@@ -17,16 +18,15 @@ console.log(username, chatroom);
 
 socket.emit('joinRoom', {username, chatroom});
 
-socket.on('message', message => {
-    console.log(message);
+socket.on('message', (message) => {
     displayMessage(message);
+    console.log(message)
 });
 
 sendAll.addEventListener('click', (e) => {
     e.preventDefault();
     const message = input.value;
     if (input.value) {
-        console.log(message)
         socket.emit('sendToAll', (message));
         input.value = "";
         input.focus();
@@ -44,16 +44,14 @@ sendMe.addEventListener('click', (e) => {
 });
 
 function displayMessage(message){
-    if (target !== null) {
+
         const item = document.createElement('div');
         item.classList.add('message-item');
-        item.innerHTML = `<p class="message-username">${message.name} - Active in ${chatroom} - ${message.time}</p><p>${message.text}</p>`;
+        item.innerHTML = `<p class="message-username">${message.username} - Active in ${chatroom} - ${message.time}</p><p>${message.text}</p>`;
         target.appendChild(item);
-        console.log(message)
-    };
+        console.log('bla' + chatroom)
 
     targetContainer.scrollTop = targetContainer.scrollHeight;
-
 }
 
 function addEmoji(emoji) {

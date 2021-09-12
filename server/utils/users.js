@@ -1,9 +1,11 @@
 const users = [];
 
-function userJoin(id, username, room) {
-    const user = {id, username, room};
+function userJoin(id, username, chatroom) {
+    const user = {id, username, chatroom};
 
     users.push(user);
+
+    return user;
 }
 
 function getCurrentUser(id) {
