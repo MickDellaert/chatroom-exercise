@@ -9,7 +9,7 @@ const io = socketio(server);
 
 const botName = 'KittyChat bot';
 const formatMessage = require('./utils/messages');
-const {userJoin, getCurrentUser} = require('./utils/users')
+const {userJoin, getCurrentUser, userLeave, getRoomUsers} = require('./utils/users')
 
 const clientPath = `${__dirname}/../client/`;
 app.use(express.static(clientPath));
@@ -32,22 +32,25 @@ io.on('connection', (socket) => {
 
         // Runs when client disconnects
         socket.on('disconnect', () => {
-            io.emit('message', formatMessage(botName, `${user.username} has left the chat`));
+            const user = userLeave(socket.id);
+
+            if(user){
+                io.to(user.chatroom).emit('message', formatMessage(botName, `${user.username} has left the chat`));
+            }
+        });
+
+        // Send message to everybody
+        socket.on('sendToAll', (message) => {
+            const user = getCurrentUser(socket.id);
+
+            io.to(user.chatroom).emit("message", formatMessage(user.username, message));
+        });
+
+        // Send message only to me
+        socket.on('sendToMe', (message) => {
+            socket.emit("message", formatMessage(user.username, message));
         });
     });
-
-    // Send message to everybody
-    socket.on('sendToAll', (message) => {
-        const user = getCurrentUser(socket.id);
-
-        io.emit("message", formatMessage(user.username, message));
-    });
-
-    // Send message only to me
-    socket.on('sendToMe', (message) => {
-        socket.emit("message", formatMessage(user.username, message));
-    });
-
 });
 
 server.listen(port, () => {
