@@ -4,7 +4,7 @@ const app = express();
 const socketio = require('socket.io');
 
 const server = http.createServer(app);
-const port = process.env.PORT || 3000;
+const port = 8070;
 const io = socketio(server);
 
 const botName = 'KittyChat bot';
